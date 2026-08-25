@@ -30,7 +30,7 @@ const siteData = {
 
   aboutTitle: "2TK",
 
-  aboutLead: "音で心と貴方を動かせたらいいと思うんだ",
+  aboutLead: "歌で貴方を動かせたらいいと思うんだ",
 
   aboutText:
     "男性2人組ユニット。作詞作曲・MIX：Kyo　Vo.：Kaz",

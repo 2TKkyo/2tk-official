@@ -1,70 +1,384 @@
 /*
 ========================================================
-2TK CONTENT — V3 VISUAL PRESERVED
+2TK CONTENT
 ========================================================
-重要：
-・V3のindex.htmlはデザインのために触らないでください。
-・普段の変更はこのファイルだけ。
-・このファイルはV3の表示を再構築しません。
-  ページ読み込み後、文字・リンクだけを差し替えます。
+ここだけ編集してください。
+
+V3のデザイン・写真・レイアウト・アニメーションは
+変更しません。
 ========================================================
 */
 
 const siteData = {
-  // HERO / キャッチコピー
-  catchCopy: "J-ROCK UNIT",
 
-  // ABOUT
-  profile: `ここに2TKのプロフィールを入力してください。`,
+  // ========================================
+  // HERO
+  // ========================================
 
+  heroSub: "J — ROCK UNIT",
+
+  heroTitle1: "TWO MINDS.",
+
+  heroTitle2: "ONE SOUND.",
+
+  heroBottom: "THE OFFICIAL 2TK EXPERIENCE",
+
+
+  // ========================================
+  // ABOUT / PROFILE
+  // ========================================
+
+  aboutTitle: "2TK",
+
+  aboutLead: "音で、残す。",
+
+  aboutText:
+    "ここに2TKのプロフィール、結成の経緯、2人の音楽性、ユニットとして大切にしていることを入力してください。",
+
+  aboutLabel: "PROFILE",
+
+
+  // ========================================
+  // MUSIC / YouTube
+  // ========================================
+
+  musicLabel: "YOUTUBE / 2TK733",
+
+  musicTitle1: "THE SOUND",
+
+  musicTitle2: "OF 2TK.",
+
+  musicText:
+    "最新の映像、ライブ、音源をYouTubeで公開しています。",
+
+  youtube:
+    "https://youtube.com/@2tk733?si=V_N2FBi4N1S7BxBt",
+
+
+  // ========================================
+  // ACTIVITY / LIVE
+  // ========================================
+
+  liveDate: "09",
+
+  liveMonth: "SEP / 2026",
+
+  liveLabel: "LIVE / TOKYO",
+
+  liveTitle: "EVENT TITLE",
+
+  liveText:
+    "会場名・イベント名・出演情報など",
+
+  activityLabel: "ACTIVITY",
+
+  activityMore:
+    "新しい活動情報をここに入力してください。",
+
+
+  // ========================================
   // SNS
-  youtube: "https://youtube.com/@2tk733?si=V_N2FBi4N1S7BxBt",
+  // ========================================
+
   x: "",
+
   instagram: "",
 
+  xStatus:
+    "ACCOUNT / COMING SOON",
+
+  instagramStatus:
+    "ACCOUNT / COMING SOON",
+
+
+  // ========================================
   // CONTACT
-  contactTitle: "CONTACT",
-  contactText: "ライブ・出演・お問い合わせなどの情報をここに掲載できます。"
+  // ========================================
+
+  contactText:
+    "出演、イベント、制作、その他のお問い合わせ窓口をここに追加できます。",
+
+  contactLabel:
+    "CONTACT / COMING SOON"
+
 };
 
+
 /*
-  V3の既存HTMLから対象を見つけるための安全な置換。
-  セレクタはV3の実DOMを優先し、見つからない場合は何もしません。
+========================================================
+ここから下は変更しないでください
+========================================================
 */
-document.addEventListener("DOMContentLoaded", () => {
-  // SNS links: only change href; visual/HTML structure remains V3.
-  const allLinks = [...document.querySelectorAll("a")];
 
-  const findLinkByText = (patterns) => allLinks.find(a => {
-    const t = (a.textContent || "").trim().toLowerCase();
-    return patterns.some(p => t.includes(p));
-  });
+document.addEventListener("DOMContentLoaded", function () {
 
-  if (siteData.youtube) {
-    const a = findLinkByText(["youtube"]);
-    if (a) { a.href = siteData.youtube; a.target = "_blank"; a.rel = "noopener"; }
+  function replaceText(oldText, newText) {
+
+    if (!newText) return;
+
+    const walker = document.createTreeWalker(
+      document.body,
+      NodeFilter.SHOW_TEXT
+    );
+
+    const nodes = [];
+
+    let node;
+
+    while (node = walker.nextNode()) {
+
+      if (
+        node.nodeValue &&
+        node.nodeValue.trim() === oldText
+      ) {
+
+        nodes.push(node);
+
+      }
+
+    }
+
+    nodes.forEach(function (node) {
+
+      node.nodeValue =
+        node.nodeValue.replace(
+          oldText,
+          newText
+        );
+
+    });
+
   }
+
+
+  // ========================================
+  // HERO
+  // ========================================
+
+  replaceText(
+    "J — ROCK UNIT",
+    siteData.heroSub
+  );
+
+  replaceText(
+    "TWO MINDS.",
+    siteData.heroTitle1
+  );
+
+  replaceText(
+    "ONE SOUND.",
+    siteData.heroTitle2
+  );
+
+  replaceText(
+    "THE OFFICIAL 2TK EXPERIENCE",
+    siteData.heroBottom
+  );
+
+
+  // ========================================
+  // ABOUT
+  // ========================================
+
+  replaceText(
+    "2TK",
+    siteData.aboutTitle
+  );
+
+  replaceText(
+    "音で、残す。",
+    siteData.aboutLead
+  );
+
+  replaceText(
+    "ここに2TKのプロフィール、結成の経緯、2人の音楽性、ユニットとして大切にしていることを入力してください。",
+    siteData.aboutText
+  );
+
+  replaceText(
+    "PROFILE",
+    siteData.aboutLabel
+  );
+
+
+  // ========================================
+  // MUSIC
+  // ========================================
+
+  replaceText(
+    "YOUTUBE / 2TK733",
+    siteData.musicLabel
+  );
+
+  replaceText(
+    "THE SOUND",
+    siteData.musicTitle1
+  );
+
+  replaceText(
+    "OF 2TK.",
+    siteData.musicTitle2
+  );
+
+  replaceText(
+    "最新の映像、ライブ、音源をYouTubeで公開しています。",
+    siteData.musicText
+  );
+
+
+  // ========================================
+  // ACTIVITY
+  // ========================================
+
+  replaceText(
+    "09",
+    siteData.liveDate
+  );
+
+  replaceText(
+    "SEP / 2026",
+    siteData.liveMonth
+  );
+
+  replaceText(
+    "LIVE / TOKYO",
+    siteData.liveLabel
+  );
+
+  replaceText(
+    "EVENT TITLE",
+    siteData.liveTitle
+  );
+
+  replaceText(
+    "会場名・イベント名・出演情報など",
+    siteData.liveText
+  );
+
+  replaceText(
+    "ACTIVITY",
+    siteData.activityLabel
+  );
+
+  replaceText(
+    "新しい活動情報をここに入力してください。",
+    siteData.activityMore
+  );
+
+
+  // ========================================
+  // CONTACT
+  // ========================================
+
+  replaceText(
+    "出演、イベント、制作、その他のお問い合わせ窓口をここに追加できます。",
+    siteData.contactText
+  );
+
+  replaceText(
+    "CONTACT / COMING SOON",
+    siteData.contactLabel
+  );
+
+
+  // ========================================
+  // YouTube
+  // ========================================
+
+  document
+    .querySelectorAll("a")
+    .forEach(function (link) {
+
+      const text =
+        link.innerText || "";
+
+      if (
+        text.includes("YOUTUBE") ||
+        text.includes("OPEN YOUTUBE")
+      ) {
+
+        if (siteData.youtube) {
+
+          link.href =
+            siteData.youtube;
+
+          link.target =
+            "_blank";
+
+          link.rel =
+            "noopener noreferrer";
+
+        }
+
+      }
+
+    });
+
+
+  // ========================================
+  // X
+  // ========================================
+
   if (siteData.x) {
-    const a = findLinkByText(["x /", "twitter", "x account", "x"]);
-    if (a) { a.href = siteData.x; a.target = "_blank"; a.rel = "noopener"; }
-  }
-  if (siteData.instagram) {
-    const a = findLinkByText(["instagram"]);
-    if (a) { a.href = siteData.instagram; a.target = "_blank"; a.rel = "noopener"; }
+
+    document
+      .querySelectorAll("a")
+      .forEach(function (link) {
+
+        const text =
+          link.innerText || "";
+
+        if (
+          text.includes("X") ||
+          text.includes("TWITTER")
+        ) {
+
+          link.href =
+            siteData.x;
+
+          link.target =
+            "_blank";
+
+          link.rel =
+            "noopener noreferrer";
+
+        }
+
+      });
+
   }
 
-  /*
-    テキスト変更は、V3の見た目を壊さないよう
-    明示的な data-content-key が付いた箇所だけ。
-    必要になったらindex.htmlにこの属性を付けます。
-  */
-  Object.entries({
-    catchCopy: siteData.catchCopy,
-    profile: siteData.profile,
-    contactTitle: siteData.contactTitle,
-    contactText: siteData.contactText
-  }).forEach(([key, value]) => {
-    document.querySelectorAll(`[data-content-key="${key}"]`)
-      .forEach(el => el.textContent = value);
-  });
+
+  // ========================================
+  // Instagram
+  // ========================================
+
+  if (siteData.instagram) {
+
+    document
+      .querySelectorAll("a")
+      .forEach(function (link) {
+
+        const text =
+          link.innerText || "";
+
+        if (
+          text.includes("INSTAGRAM")
+        ) {
+
+          link.href =
+            siteData.instagram;
+
+          link.target =
+            "_blank";
+
+          link.rel =
+            "noopener noreferrer";
+
+        }
+
+      });
+
+  }
+
 });

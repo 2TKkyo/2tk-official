@@ -99,7 +99,7 @@ const siteData = {
     "出演、イベント、制作、その他のお問い合わせ窓口をここに追加できます。",
 
   contactLabel:
-    "email:"kt092396@gmail.com""
+    "EMAIL　/ CONTACT"kt092396@gmail.com""
 
 };
 

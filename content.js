@@ -30,10 +30,10 @@ const siteData = {
 
   aboutTitle: "2TK",
 
-  aboutLead: "音で、残す。",
+  aboutLead: "音で心と貴方を動かせたらいいと思うんだ",
 
   aboutText:
-    "ここに2TKのプロフィール、結成の経緯、2人の音楽性、ユニットとして大切にしていることを入力してください。",
+    "男性2人組ユニット。作詞作曲・MIX：Kyo　Vo.：Kaz",
 
   aboutLabel: "PROFILE",
 
@@ -49,7 +49,7 @@ const siteData = {
   musicTitle2: "OF 2TK.",
 
   musicText:
-    "最新の映像、ライブ、音源をYouTubeで公開しています。",
+    "楽曲をYouTubeで公開しています。",
 
   youtube:
     "https://youtube.com/@2tk733?si=V_N2FBi4N1S7BxBt",
@@ -99,7 +99,7 @@ const siteData = {
     "出演、イベント、制作、その他のお問い合わせ窓口をここに追加できます。",
 
   contactLabel:
-    "CONTACT / COMING SOON"
+    "CONTACT /kt092396@gmail.com"
 
 };
 

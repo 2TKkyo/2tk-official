@@ -85,7 +85,7 @@ const siteData = {
   instagram: "",
 
   xStatus:
-    "ACCOUNT / COMING SOON",
+    "@suke2TK1 /Kyo ",
 
   instagramStatus:
     "ACCOUNT / COMING SOON",
@@ -99,7 +99,7 @@ const siteData = {
     "出演、イベント、制作、その他のお問い合わせ窓口をここに追加できます。",
 
   contactLabel:
-    "CONTACT /kt092396@gmail.com"
+    "CONTACT /email:"kt092396@gmail.com""
 
 };
 

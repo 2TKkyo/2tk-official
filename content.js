@@ -63,7 +63,7 @@ const siteData = {
 
   liveMonth: "SEP / 2026",
 
-  liveLabel: "LIVE / TOKYO",
+  liveLabel: "LIVE / YKOHAMA",
 
   liveTitle: "EVENT TITLE",
 
@@ -73,7 +73,7 @@ const siteData = {
   activityLabel: "ACTIVITY",
 
   activityMore:
-    "新しい活動情報をここに入力してください。",
+    "新曲公開していきます。しばしお待ちを。",
 
 
   // ========================================
